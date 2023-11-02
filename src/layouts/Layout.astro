@@ -18,53 +18,15 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <link rel="stylesheet" href="/styles/global.css" />
     <ViewTransitions />
   </head>
   <body>
     <Header />
 
     <main>
-      <h1 class="text-5xl font-extrabold text-purple-700 mb-8">{title}</h1>
+      <h1 class="text-5xl font-bold text-purple-700 mb-8">{title}</h1>
       <slot />
     </main>
-
-    <style is:global>
-      :root {
-        --accent: 136, 58, 234;
-        --accent-light: 224, 204, 250;
-        --accent-dark: 49, 10, 101;
-        --accent-gradient: linear-gradient(
-          45deg,
-          rgb(var(--accent)),
-          rgb(var(--accent-light)) 30%,
-          white 60%
-        );
-      }
-      html {
-        font-family: system-ui, sans-serif;
-        background: #16131a;
-        background-size: 224px;
-        font-size: 1.2rem;
-      }
-      main {
-        margin: auto;
-        padding: 1rem;
-        width: 800px;
-        max-width: calc(100% - 2rem);
-        color: #e1e1e1;
-        line-height: 1.6;
-      }
-      code {
-        font-family:
-          Menlo,
-          Monaco,
-          Lucida Console,
-          Liberation Mono,
-          DejaVu Sans Mono,
-          Bitstream Vera Sans Mono,
-          Courier New,
-          monospace;
-      }
-    </style>
   </body>
 </html>

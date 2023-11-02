@@ -1,0 +1,52 @@
+@font-face {
+  font-family: "GeistMonoVF";
+  src: url("/fonts/GeistMonoVF.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-stretch: 75% 100%;
+  font-style: normal;
+}
+@font-face {
+  font-family: "GeistVF";
+  src: url("/fonts/GeistVF.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-stretch: 75% 100%;
+  font-style: normal;
+}
+:root {
+  --accent: 136, 58, 234;
+  --accent-light: 224, 204, 250;
+  --accent-dark: 49, 10, 101;
+  --accent-gradient: linear-gradient(
+    45deg,
+    rgb(var(--accent)),
+    rgb(var(--accent-light)) 30%,
+    white 60%
+  );
+}
+html {
+  font-family: GeistVF, system-ui, sans-serif;
+  background: #16131a;
+  background-size: 224px;
+  font-size: 1.2rem;
+  font-weight: 100;
+}
+main {
+  margin: auto;
+  padding: 1rem;
+  width: 800px;
+  max-width: calc(100% - 2rem);
+  color: #e1e1e1;
+  line-height: 1.6;
+}
+code {
+  font-family:
+    GeistMonoVF,
+    Menlo,
+    Monaco,
+    Lucida Console,
+    Liberation Mono,
+    DejaVu Sans Mono,
+    Bitstream Vera Sans Mono,
+    Courier New,
+    monospace;
+}
