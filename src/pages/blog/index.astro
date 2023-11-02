@@ -1,11 +1,17 @@
 ---
 import Layout from "@layouts/Layout.astro";
+import { getCollection } from "astro:content";
+const allPosts = await getCollection("blog");
 ---
 
 <Layout title="Blog Me">
-  <p>
-    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex vel ad minus
-    modi. Placeat, temporibus! Iste commodi eos ratione assumenda eius adipisci
-    sunt distinctio quis doloribus, quaerat laboriosam, architecto illum!
-  </p>
+  <ul>
+    {
+      allPosts.map((post) => (
+        <li>
+          <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+        </li>
+      ))
+    }
+  </ul>
 </Layout>

@@ -1,0 +1,69 @@
+---
+title: Docker - Setup
+pubDate: 2023-11-02
+description: a very cool guide
+author: EvilWeasel
+cover: "@images/ac6.jpg"
+coverAlt: memes
+---
+
+# Docker - Setup DevContainer
+
+## Table of Content
+
+## Why do we need docker?
+
+Docker is an open-source tool for orchestrating a predefined environment for our source code to run. Usually we as developers depend on other peoples tools and software to streamline the development process. But adding to many dependencies can make our lifes difficult for a number of reasons:
+
+- It takes forever to set-up a new development-environment
+- There's always some dependency missing and in the worst case we get cryptic errors
+- If we want to share our code with others or want to work together, everyone needs the same dependencies and ideally the same version 😑
+
+
+## How to use docker for development
+
+Docker is ideal for developing basically anything that works inside an [[LXC-Container]]. With it, we can define our dependencies once in a `Dockerfile`, which can then be distributed to all contributors to the project. That way there's no need to install all dependencies individually anymore, because the entire development-environment is pre-built.
+
+## How to build a Dev-Environment?
+
+### Define an image
+
+Create a `Dockerfile` inside the root of the project. Note: If your *stack* requires multiple self-built projects, each one needs it's own `Dockerfile`.
+
+Inside your `Dockerfile` define a base-image. The base-image can be seen as a default linux install with diffrent ammounts of software already pre-installed on them.
+
+```Dockerfile
+from node:16
+...
+```
+
+In this image, `node version 16` is already pre-installed, along with many other tools one would need to develop inside linux. If we need other software installen in our container, we would install them here (Order matters here).
+
+#### Instruction-Order
+
+The reason the order is important to keep in mind, is because docker will cache every instruction in the build process. This means that, docker will go through every instruction in the dockerfile and, if nothing changed, will fetch this part of the build process from the cache. The result is way faster build times on following builds. This however only works, as long as the chain of cached instructions isn't broken. 
+###### For Example
+1. First instruction is the base-image, which won't get updates daily, so this step is fetched from cache almost every time.
+2. Second instruction: copy our source code into the container - this step will need to be performed every time we make changes to our code. **THIS BREAKS THE CACHE-CHAIN**
+3. All instructions beginning with the instruction which broke the cache-chain will need to be performed again, before being able to be fetched from cache again
+
+#### Customizing the image
+
+If you ever used a unix-shell, these next steps will feel familiar, because they mimick the same steps you would use on a development-server.
+
+```Dockerfile
+From node:16
+# Set environment variables
+ENV NODE_ENV=development
+WORKDIR /usr/src/app
+COPY ["package*.json", "npm-shrinkwrap.json", "./"]
+```
+
+We set `NODE_ENV` to `development` to signal to node to also install our development-dependencies. After that we set our current working directory (the folder, from where our commands should be executed) and copy all files in, which we need to install our dependencies. Note that this step would be diffrent in a production-environment, because in a dev-environment, we want to later bind-mount our source files inside the container, so updates to the code would'nt be lost after stopping the container. **Remember:**  containers are [ephemeral](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#:~:text=By%20%E2%80%9Cephemeral%E2%80%9D%2C%20we%20mean,in%20such%20a%20stateless%20fashion.)
+
+```Dockerfile
+...
+# install dependencies without confirming
+RUN npm install --silent
+# 
+```
