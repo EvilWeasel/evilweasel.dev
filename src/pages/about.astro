@@ -1,0 +1,56 @@
+---
+import Layout from "@layouts/Layout.astro";
+const personalInfo = {
+  name: "Tobias",
+  alias: "EvilWeasel",
+  age: 25,
+  location: "Germany",
+  occupation: ["Software Developer", "Trainer"],
+  links: [
+    {
+      name: "Mastodon",
+      url: "https://mastodon.online/@EvilWeasel",
+    },
+    {
+      name: "GitHub",
+      url: "https://github.com/evilweasel",
+    },
+  ],
+};
+---
+
+<Layout title="About Me">
+  <h1>My Name is <span>{personalInfo.name}</span></h1>
+
+  <p>
+    I'm {personalInfo.age} year old and from {personalInfo.location}.
+  </p>
+  <h2>Occupation</h2>
+  <ul>
+    {personalInfo.occupation.map((job) => <li>{job}</li>)}
+  </ul>
+</Layout>
+
+<style>
+  h1 {
+    @apply text-4xl mb-4;
+  }
+  h2 {
+    @apply text-2xl mb-2;
+  }
+  span {
+    @apply text-purple-600 font-bold;
+  }
+  p {
+    @apply mb-4;
+  }
+  ul {
+    @apply list-disc pl-4;
+  }
+  li {
+    @apply mb-1 text-purple-600 font-bold;
+  }
+  li::marker {
+    @apply text-purple-400;
+  }
+</style>

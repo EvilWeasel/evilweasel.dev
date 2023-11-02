@@ -1,0 +1,31 @@
+---
+
+---
+
+<nav>
+  <ul>
+    <li><a href="/">/Home</a></li>
+    <li><a href="/about">/About</a></li>
+    <li><a href="/blog">/Blog</a></li>
+  </ul>
+</nav>
+
+<style>
+  nav {
+    margin: 1.5rem auto;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+  }
+  ul {
+    @apply flex flex-row;
+  }
+  li {
+    @apply mx-5;
+  }
+  a {
+    @apply text-gray-300 text-lg border-l-purple-600 rounded-md italic;
+  }
+  a:hover {
+    @apply text-pink-600 font-bold;
+  }
+</style>
