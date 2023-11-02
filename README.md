@@ -1,6 +1,6 @@
 # EvilWeasel.dev
 
-todo: add link to deployment
+[link to deployment](https://evilweasel-blog.netlify.app) 
 
 This is the source-code for my personal homepage and devblog.
 On my blog you'll find posts and guides all about `it` and `software-development`, as well as links to my other projects.
