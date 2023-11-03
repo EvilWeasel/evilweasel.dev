@@ -6,7 +6,7 @@ const postsCollection = defineCollection({
     title: z.string(),
     pubDate: z.date(),
     description: z.string(),
-    author: z.enum(["EvilWeasel"]),
+    author: z.enum(["EvilWeasel", "Du"]),
     cover: image().refine((img) => img.width >= 1080, {
       message: "Cover image must be at least 1080px wide!"
     }),

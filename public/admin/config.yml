@@ -1,0 +1,23 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+
+
+publish_mode: editorial_workflow
+media_folder: "src/assets/images" # Media files will be stored in the repo under static/images/uploads
+public_folder: "/images" # The src attribute for uploaded media will begin with /images/uploads
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string", default: "New Post"}
+      - {label: "Publish Date", name: "pubDate", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Author", name: "author", widget: "select", options: ["EvilWeasel", "Du"]}
+      - {label: "Cover Image", name: "cover", widget: "image"}
+      - {label: "Cover Image Alt Text", name: "coverAlt", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
