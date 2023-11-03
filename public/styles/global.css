@@ -22,13 +22,34 @@
     rgb(var(--accent-light)) 30%,
     white 60%
   );
+  --blur-radius: 5px;
 }
 html {
   font-family: GeistVF, system-ui, sans-serif;
   background: #3b333b;
-  background-size: 224px;
+  height: 100vh;
   font-size: 1.2rem;
+  margin: 0;
   font-weight: 100;
+}
+html::before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  display: block;
+  background-image: url('/ac6.jpg');
+  background-size:cover;
+  width: 100%;
+  height: 100%;
+
+  -webkit-filter: blur(var(--blur-radius));
+  -moz-filter: blur(var(--blur-radius));
+  -o-filter: blur(var(--blur-radius));
+  -ms-filter: blur(var(--blur-radius));
+  filter: blur(var(--blur-radius)) opacity(15%);
 }
 main {
   margin: auto;

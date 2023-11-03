@@ -11,7 +11,6 @@ const allPosts = await getCollection("blog");
       allPosts.map((post) => (
         <li>
           <BlogCard post={post} />
-          <a href={`/blog/${post.slug}`}>{post.data.title}</a>
         </li>
       ))
     }

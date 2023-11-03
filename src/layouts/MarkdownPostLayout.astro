@@ -1,8 +1,10 @@
 ---
 import Layout from "@layouts/Layout.astro";
+
+const { frontmatter } = Astro.props;
 ---
 
-<Layout title="memes">
+<Layout title={frontmatter.title}>
   <article class="prose prose-slate dark:prose-invert lg:prose-xl">
     <slot />
   </article>
