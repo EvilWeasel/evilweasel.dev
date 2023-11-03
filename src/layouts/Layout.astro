@@ -25,7 +25,9 @@ const { title } = Astro.props;
     <Header />
 
     <main>
-      <h1 class="text-5xl font-bold mb-8">{title}</h1>
+      <h1 class="text-5xl font-bold mb-8" transition:animate="slide">
+        {title}
+      </h1>
       <slot />
     </main>
   </body>
