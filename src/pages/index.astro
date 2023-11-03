@@ -9,4 +9,22 @@ import Layout from "@layouts/Layout.astro";
     href="https://github.com/EvilWeasel/evilweasel.dev"
     body="🔜"
   />
+
+  <script>
+    declare global {
+      interface Window {
+        netlifyIdentity: any;
+      }
+    }
+
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", function (user: any) {
+        if (!user) {
+          window.netlifyIdentity.on("login", function () {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
+  </script>
 </Layout>
