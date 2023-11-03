@@ -1,31 +1,22 @@
 ---
-
+import HeaderLink from "./HeaderLink.astro";
 ---
 
 <nav>
   <ul>
-    <li><a href="/">/Home</a></li>
-    <li><a href="/about">/About</a></li>
-    <li><a href="/blog">/Blog</a></li>
+    <HeaderLink href="/" content="Home" icon="ri:home-2-line" />
+    <HeaderLink href="/about" content="about" icon="simple-icons:aboutdotme" />
+    <HeaderLink href="/blog" content="blog" icon="ph:article-medium-light" />
   </ul>
 </nav>
 
 <style>
   nav {
     margin: 1.5rem auto;
-    width: 800px;
+    width: 60%;
     max-width: calc(100% - 2rem);
   }
   ul {
-    @apply flex flex-row;
-  }
-  li {
-    @apply mx-5;
-  }
-  a {
-    @apply text-gray-300 text-lg border-l-purple-600 rounded-md italic;
-  }
-  a:hover {
-    @apply text-pink-600 font-bold;
+    @apply flex flex-row justify-between;
   }
 </style>

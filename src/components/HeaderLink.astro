@@ -1,0 +1,42 @@
+---
+import Icon from "astro-icon";
+const { href, content, icon } = Astro.props;
+---
+
+<a href={href}>
+  <li>
+    <p>/{content}</p>
+    {icon && <Icon name={icon} />}
+  </li>
+</a>
+<style>
+  [astro-icon] {
+    width: 1rem;
+    transform: scale(0);
+    @apply ml-4 mr-2;
+    color: white;
+    transition: transform 0.3s ease;
+  }
+  li {
+    @apply mx-5 flex flex-grow-0 p-3;
+    background-color: #29000ef2;
+    border: 2px solid #f45db399;
+    border-radius: 0.3rem;
+    box-shadow:
+      2px 2px 12px #f45db399,
+      2px 2px 2px #1b172133 inset;
+    transition: transform 0.3s ease-in;
+  }
+  a {
+    @apply text-gray-300 text-lg italic no-underline;
+    display: inline-block;
+  }
+  a:hover > li {
+    background-color: #f45db399;
+    @apply text-white;
+    transform: scale(1.1);
+  }
+  li:hover > [astro-icon] {
+    transform: scale(2); /* Keep the icon size unchanged */
+  }
+</style>

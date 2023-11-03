@@ -25,7 +25,7 @@
 }
 html {
   font-family: GeistVF, system-ui, sans-serif;
-  background: #16131a;
+  background: #3b333b;
   background-size: 224px;
   font-size: 1.2rem;
   font-weight: 100;
@@ -33,7 +33,7 @@ html {
 main {
   margin: auto;
   padding: 1rem;
-  width: 800px;
+  width: 60%;
   max-width: calc(100% - 2rem);
   color: #e1e1e1;
   line-height: 1.6;
@@ -49,4 +49,8 @@ code {
     Bitstream Vera Sans Mono,
     Courier New,
     monospace;
+}
+
+h1 {
+  color: #f45db399;
 }

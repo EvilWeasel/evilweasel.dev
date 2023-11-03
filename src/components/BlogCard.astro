@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+const { post } = Astro.props;
+
+const date = new Date(post.data.pubDate);
+---
+
+<a href={`/blog/${post.slug}`}>
+  <li class="border-pink-600 w-1/3">
+    <img src="https://picsum.photos/1920/1080" alt="HeaderImage" />
+    <h2 class="text-2xl">{post.data.title}</h2>
+    <div class="flex flex-row justify-between text-sm">
+      <p>{post.data.author}</p>
+      <p>{date.toLocaleDateString("de")}</p>
+    </div>
+    <p class="text-lg">{post.data.description}</p>
+  </li>
+</a>
+<style>
+  p {
+    display: inline-block;
+  }
+</style>
