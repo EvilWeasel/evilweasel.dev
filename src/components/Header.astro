@@ -14,10 +14,15 @@ import HeaderLink from "./HeaderLink.astro";
   nav {
     padding-top: 1.5rem;
     margin: 0 auto;
-    width: 60%;
+    width: 80%;
     max-width: calc(100% - 2rem);
   }
   ul {
     @apply flex flex-row justify-between;
+  }
+  @media screen and (min-width: 1200px) {
+    nav {
+      width: 60%;
+    }
   }
 </style>
