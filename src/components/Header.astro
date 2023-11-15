@@ -1,7 +1,56 @@
 ---
+import { Image } from "astro:assets";
 import HeaderLink from "./HeaderLink.astro";
+import Logo from "@images/Tux_Mono.svg";
 ---
 
+<nav class="relative pt-6">
+  <!-- Flex container -->
+  <div class="flex items-center justify-between">
+    <!-- Logo -->
+    <div class="pt-2">
+      <Image src={Logo} alt="Tux" width="50" height="50" />
+    </div>
+    <!-- Menu Items 
+    Tailwind is mobile-first -->
+    <div class="hidden space-x-6 md:flex">
+      <a href="#" class="hover:text-pink-500 underline underline-offset-2"
+        >About Me</a
+      >
+      <a href="/blog" class="hover:text-pink-500 underline underline-offset-2"
+        >Blog</a
+      >
+      <a href="/docs" class="hover:text-pink-500 underline underline-offset-2"
+        >Docs</a
+      >
+    </div>
+    <a
+      href="#"
+      class="baseline hidden rounded-full bg-purple-500 p-3 px-6 py-3 text-white hover:bg-pink-500 md:block"
+      >Get Started</a
+    >
+    <button class="text-3xl" id="theme-toggle">🌓</button>
+    <!-- Hamburger Icon -->
+    <button id="menu-btn" class="hamburger block focus:outline-none md:hidden">
+      <span class="hamburger-top"></span>
+      <span class="hamburger-middle"></span>
+      <span class="hamburger-bottom"></span>
+    </button>
+  </div>
+  <!-- Mobile Menu -->
+  <div class="md:hidden">
+    <div
+      id="menu"
+      class="absolute left-6 right-6 mt-10 hidden flex-col items-center space-y-6 self-end bg-white py-8 font-bold drop-shadow-md sm:w-auto sm:self-center z-10"
+    >
+      <a href="#">About Me</a>
+      <a href="#">Blog</a>
+      <a href="#">Docs</a>
+    </div>
+  </div>
+</nav>
+
+<!-- 
 <nav>
   <ul>
     <HeaderLink href="/" content="Home" icon="ri:home-2-line" />
@@ -13,16 +62,79 @@ import HeaderLink from "./HeaderLink.astro";
 <style>
   nav {
     padding-top: 1.5rem;
-    margin: 0 auto;
-    width: 80%;
-    max-width: calc(100% - 2rem);
+    @apply mx-auto w-3/4;
   }
   ul {
     @apply flex flex-row justify-between;
   }
-  @media screen and (min-width: 1200px) {
-    nav {
-      width: 60%;
-    }
+</style> -->
+
+<script defer>
+  const btn_menu = document.querySelector("#menu-btn");
+  const nav_elem = document.querySelector("#menu");
+  const btn_theme = document.querySelector("#theme-toggle");
+
+  btn_menu.addEventListener("click", () => {
+    btn_menu.classList.toggle("open");
+    nav_elem.classList.toggle("flex");
+    nav_elem.classList.toggle("hidden");
+  });
+
+  btn_theme.addEventListener("click", () => {
+    document.documentElement.classList.toggle("dark");
+  });
+</script>
+
+<style>
+  /* todo: temp */
+  a:last-child {
+    display: none;
+  }
+  /* Hamburger Menu */
+  .hamburger {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    transition: all 0.25s;
+    position: relative;
+    margin-right: 1em;
+  }
+
+  .hamburger-top,
+  .hamburger-middle,
+  .hamburger-bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background-color: black;
+    transform: rotate(0);
+    transition: all 0.5s;
+  }
+
+  .hamburger-middle {
+    transform: translateY(7px);
+  }
+
+  .hamburger-bottom {
+    transform: translateY(14px);
+  }
+
+  .open {
+    transform: rotate(90deg);
+    transform: translateY(0px);
+  }
+
+  .open .hamburger-top {
+    transform: rotate(45deg) translateY(6px) translateX(6px);
+  }
+
+  .open .hamburger-middle {
+    display: none;
+  }
+
+  .open .hamburger-bottom {
+    transform: rotate(-45deg) translateY(6px) translateX(-6px);
   }
 </style>

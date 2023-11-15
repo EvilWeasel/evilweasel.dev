@@ -24,7 +24,9 @@ const { title } = Astro.props;
 
     <ViewTransitions />
   </head>
-  <body>
+  <body
+    class="container mx-6 md:mx-auto bg-bglight dark:bg-bgdark dark:text-white"
+  >
     <Header />
 
     <main class="pt-12">
@@ -33,5 +35,35 @@ const { title } = Astro.props;
       </h1>
       <slot />
     </main>
+
+    <script>
+      declare global {
+        interface Window {
+          netlifyIdentity: any;
+        }
+      }
+
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", function (user: any) {
+          if (!user) {
+            window.netlifyIdentity.on("login", function () {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+
+      // Dark mode
+      document.addEventListener("DOMContentLoaded", () => {
+        if (
+          // todo: add support for saving state of theme toggle switch using local storage
+          window.matchMedia &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches
+        ) {
+          // Fügt die 'dark'-Klasse hinzu, wenn der Nutzer Dark Mode bevorzugt
+          document.body.classList.add("dark");
+        }
+      });
+    </script>
   </body>
 </html>

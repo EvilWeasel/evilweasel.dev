@@ -8,7 +8,21 @@ export default {
         serif: ["GeistVF"],
         mono: ["GeistMonoVF"],
       },
+      colors: {
+        primary: "#ff79c6",
+        secondary: "#bd93f9",
+        accent: "#8be9fd",
+        info: "#6272a4",
+        hint: "#ffb86c",
+        success: "#50fa7b",
+        warning: "#ff5555",
+        // A slightly darker white
+        bglight: "#f8f8f2",
+        // A slate gray background
+        bgdark: "#282a36",
+      },
     },
   },
+  darkMode: "class",
   plugins: [require("@tailwindcss/typography")],
 };

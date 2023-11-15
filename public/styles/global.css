@@ -12,6 +12,7 @@
   font-stretch: 75% 100%;
   font-style: normal;
 }
+/* 
 :root {
   --accent: 136, 58, 234;
   --accent-light: 224, 204, 250;
@@ -23,49 +24,13 @@
     white 60%
   );
   --blur-radius: 5px;
+
 }
+*/
 html {
   font-family: GeistVF, system-ui, sans-serif;
-  background: #3b333b;
   height: 100vh;
-  font-size: 1.2rem;
   margin: 0;
-  font-weight: 100;
-}
-html::before {
-  content: "";
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: -1;
-
-  display: block;
-  background-image: url('/images/ac6.jpg');
-  background-size:cover;
-  background-position: center;
-  width: 100%;
-  height: 100%;
-
-  -webkit-filter: blur(var(--blur-radius));
-  -moz-filter: blur(var(--blur-radius));
-  -o-filter: blur(var(--blur-radius));
-  -ms-filter: blur(var(--blur-radius));
-  filter: blur(var(--blur-radius)) opacity(15%);
-}
-main {
-  margin: auto;
-  padding: 1rem;
-  padding-bottom: 2rem;
-  margin-top: 6vh;
-  width: 80%;
-  max-width: calc(100% - 2rem);
-  color: #e1e1e1;
-  line-height: 1.6;
-  border: 1px solid #393939;
-  border-radius: .8rem;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
-  background-color: #393939;
-  transition: width 0.5s ease-in-out;
 }
 code {
   font-family:
@@ -78,14 +43,4 @@ code {
     Bitstream Vera Sans Mono,
     Courier New,
     monospace;
-}
-
-h1 {
-  color: #f45db399;
-}
-
-@media screen and (min-width: 1200px) {
-  main {
-    width: 60%;
-  }
 }

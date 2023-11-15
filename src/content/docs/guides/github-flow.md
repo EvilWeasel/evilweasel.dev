@@ -1,0 +1,95 @@
+# Einleitung
+
+Git und Github sind mächtige Tools, aber mit großer Macht, kommt auch große Verantwortung. Eine Essentielle Frage, die wir uns stellen müssen, nachdem wir die Basics von Git gelernt haben, sollte also sein:
+
+> Wie verwende ich Git und Github in meinem Alltag als Developer? Wie in meinem kleinen Hobby-Projekt? Und wie organisiere ich meinen Source-Code, wenn ich in einem Team arbeiten möchte?
+> 
+
+Da dies eher philosophische Fragen sind, gibt es hier eine Mehrzahl von korrekten (und weniger korrekten) Antworten.
+
+Eine dieser Antworten lautet:
+
+# **Warum Github-Flow?**
+
+Bevor wir in die Tiefen von Git abtauchen, ist es wichtig zu klären, warum wir überhaupt den Github-Flow verwenden sollten. Der Github-Flow ist intuitiv, einfach zu verstehen und erlaubt eine reibungslose Zusammenarbeit im Team. Er ist besonders nützlich für kleine bis mittelgroße Projekte, wo schnelles und agiles Arbeiten gefragt ist.
+
+## **Praktischer Nutzen**
+
+- **Einfache Struktur**: Der Github-Flow arbeitet mit nur einem Haupt-Branch (meist **`main`** oder **`master`**), was die Dinge übersichtlich hält.
+- **Schnelle Iterationen**: Du kannst sehr schnell Features hinzufügen oder Bugs fixen und diese Änderungen schnell ins Live-System übernehmen.
+- **Code Reviews**: Durch Pull Requests wird der Code automatisch von anderen Teammitgliedern begutachtet, was die Code-Qualität verbessert.
+
+# **Vorteile und Nachteile gegenüber Git-Flow**
+
+## **Vorteile**
+
+- **Einfachheit**: Während der Git-Flow mit verschiedenen Branches für Features, Releases und Hotfixes arbeitet, ist der Github-Flow viel einfacher strukturiert.
+- **Schnelligkeit**: Keine langen Wartezeiten für Release-Branches. Jeder Merge kann sofort live gehen.
+
+## **Nachteile**
+
+- **Weniger Struktur**: Für komplexe Projekte mit mehreren parallelen Entwicklungssträngen könnte der Github-Flow zu simpel sein.
+- **Risiko**: Da jeder Pull Request potenziell live gehen kann, besteht ein höheres Risiko für Fehler.
+
+# Wie ein Github-Flow aussehen könnte
+
+[2 Entwickler die parallel an zwei unterschiedlichen Features arbeiten und diese auf den gemeinsamen `main` Branch zuruckmergen.](https://mermaid.ink/svg/pako:eNqNU01v2zAM_SsCz07m-COpfB4w9LDLil4GXVSLtrXGlCHLabsg_320sgJxGnTzze_xke_R9BFqZxAqaG345vXQVYrcEKyjUdFRkeBHAXHNw6BrS62CSuRpmlxSP7Sx0zgzm1TRSRGSUVS7vrdBBN1WXGfJBgWKnrymuhMN6jB5_KKn0HFph_Wzm8I1vOzQD3vskQIaEXm4EPba0rVgdD2uCF9WB_QjJ5oFHwww_3h_w8E7vujIoHi8F3MWq_fiTC58LANc67UxbH72JXrnMcZYDd4drGGLsdGivrGvc1ixd60l8TS14sWGLsrSf8bvXGC9aJwXPMJMdfi7g__LevbqcRz4FuwBhcHRtiSCE-c13DCgqEff4mIL7_0is_pkZTddNJZ40dr8msYwf_vx0_nL6bHhYry5kEIyY6wzfP3x0hWEjg9svmMFRvvnuezEdRzDPbxRDVXwEyYwDUYH_Gp163UPVaP3I6ODpp_OLd6hOsIrVFm6W8usLKUsd8VWZlmewBvDmVxnxWa7vSvysizyTXlK4Hdska7vpEzzLN8Vm3Qn5TZLAI0Nzn8__67xrz39AQPGTws)
+
+2 Entwickler die parallel an zwei unterschiedlichen Features arbeiten und diese auf den gemeinsamen `main` Branch zuruckmergen.
+
+## **Schritt-für-Schritt Vorgehen**
+
+1. **Fork & Clone**: Du machst zuerst einen Fork des Original-Repositories und klont es dann auf deinen lokalen Rechner.
+    
+    ```powershell
+    git clone https://github.com/deinUsername/deinProjekt.git
+    ```
+    
+2. **Add Feature**: Jetzt erstellst du einen neuen Branch für dein Feature.
+    
+    ```powershell
+    git checkout -b neues-feature
+    ```
+    
+3. **Entwickeln**: Du implementierst dein Feature und testest es gründlich.
+4. **Commit**: Nach dem Entwickeln kommt der Commit. Du fügst die geänderten Dateien zum Staging-Bereich hinzu und erstellst dann den eigentlichen Commit.
+    
+    ```powershell
+    git add .
+    git commit -m "Mein neues Feature hinzugefügt"
+    ```
+    
+5. **Push**: Jetzt pushe den neuen Branch zu deinem Fork auf Github.
+    
+    ```powershell
+    git push origin neues-feature
+    ```
+    
+6. **Pull Request**: Jetzt gehst du zu Github und erstellst einen Pull Request. Das ermöglicht es den anderen Teammitgliedern, deinen Code zu reviewen.
+    1. Vor diesem Schritt, schaut bitte nach, dass ihr auf der neusten Version seit. Damit stellt ihr sicher, dass eure Änderungen möglichst einfach im nächsten Release hinzugefügt werden können. Wenn euer Fork `out-of-date` ist, dann sorgt euere Änderung gegebenfalls für Mehrarbeit.
+7. **Merge**: Sobald der Pull Request genehmigt wurde, kann der Code in den Haupt-Branch gemergt werden. Und voilà, dein Feature ist jetzt live!
+
+# Key-Takeaways
+
+- Der Github-Flow ist intuitiv, einfach zu verstehen und ermöglicht eine reibungslose Zusammenarbeit im Team.
+- Durch den Github-Flow können Features und Bugfixes schnell hinzugefügt und ins Live-System übernommen werden.
+- Code Reviews durch Pull Requests verbessern die Code-Qualität.
+- Der Github-Flow ist besonders nützlich für kleine bis mittelgroße Projekte, wo schnelles und agiles Arbeiten gefragt ist.
+- Im Github-Flow gibt es nur einen Haupt-Branch, was die Struktur einfach und übersichtlich hält.
+- Im Vergleich zum Git-Flow ist der Github-Flow weniger strukturiert, aber schneller in der Umsetzung.
+- Für komplexe Projekte mit vielen parallelen Entwicklungssträngen könnte der Github-Flow zu simpel sein.
+- Durch den Github-Flow besteht ein höheres Risiko für Fehler, da jeder Pull Request potenziell live gehen kann.
+
+# Zusätzliche Ressourcen und Quellen
+
+- [GitHub-Flow - GitHub-Dokumentation](https://docs.github.com/de/get-started/quickstart/github-flow)
+- [Forken eines Repositorys - GitHub-Dokumentation](https://docs.github.com/de/get-started/quickstart/fork-a-repo)
+- [Zu Projekten beitragen - GitHub-Dokumentation](https://docs.github.com/de/get-started/quickstart/contributing-to-projects)
+
+# Zusätzliche Ressourcen und Quellen
+
+[GitHub-Flow - GitHub-Dokumentation](https://docs.github.com/de/get-started/quickstart/github-flow)
+
+[Forken eines Repositorys - GitHub-Dokumentation](https://docs.github.com/de/get-started/quickstart/fork-a-repo)
+
+[Zu Projekten beitragen - GitHub-Dokumentation](https://docs.github.com/de/get-started/quickstart/contributing-to-projects)
