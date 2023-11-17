@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+
+import meImage from "@images/me.png";
+---
+
+<div
+  class="container md:flex-row flex flex-col items-center justify-center text-center grow"
+>
+  <div class="container flex flex-col md:w-1/2">
+    <p class="text-primary text-xl md:text-2xl">Hi, ich bin</p>
+    <h2 class="text-5xl md:text-6xl font-bold mt-2">Tobias Wehrle.</h2>
+    <h3 class="text-secondary text-2xl md:text-2xl font-medium my-4">
+      Developer; Trainer; Gamer;
+    </h3>
+
+    <p>
+      Leidenschaftlicher Beibringer von Wissen und Programmierer. In meiner Welt
+      verschmelzen Technologie und Bildung zu einzigartigen Erlebnissen. Stets
+      auf der Suche nach neuen Herausforderungen und Wegen, um Wissen
+      spielerisch zu vermitteln.
+    </p>
+  </div>
+  <Image
+    src={meImage}
+    alt={"A picture of me :)"}
+    height={1280}
+    width={1280}
+    class={"rounded-lg w-3/4 mt-3 md:w-2/4 md:mt-0 md:ml-4 dark:border-slate-900 border-slate-100 border-b-4 shadow-xl"}
+  />
+</div>

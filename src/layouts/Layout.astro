@@ -10,7 +10,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -25,14 +25,15 @@ const { title } = Astro.props;
     <ViewTransitions />
   </head>
   <body
-    class="container mx-6 md:mx-auto bg-bglight dark:bg-bgdark dark:text-white"
+    class="container h-screen w-full mx-6 mx-auto bg-bglight dark:bg-bgdark dark:text-white p-2"
   >
-    <Header />
+    <Header transition:persist />
 
-    <main class="pt-12">
-      <h1 class="text-5xl font-bold mb-8" transition:animate="slide">
+    <main class="md:pt-12 pt-4 justify-center" transition:animate="slide">
+      <h1 class="text-5xl font-bold mb-2">
         {title}
       </h1>
+      <div class="border-secondary border-b-2 mb-8 md:mb-12"></div>
       <slot />
     </main>
 
@@ -53,17 +54,17 @@ const { title } = Astro.props;
         });
       }
 
-      // Dark mode
-      document.addEventListener("DOMContentLoaded", () => {
-        if (
-          // todo: add support for saving state of theme toggle switch using local storage
-          window.matchMedia &&
-          window.matchMedia("(prefers-color-scheme: dark)").matches
-        ) {
-          // Fügt die 'dark'-Klasse hinzu, wenn der Nutzer Dark Mode bevorzugt
-          document.body.classList.add("dark");
-        }
-      });
+      // // Dark mode
+      // document.addEventListener("DOMContentLoaded", () => {
+      //   if (
+      //     // todo: add support for saving state of theme toggle switch using local storage
+      //     window.matchMedia &&
+      //     window.matchMedia("(prefers-color-scheme: dark)").matches
+      //   ) {
+      //     // Fügt die 'dark'-Klasse hinzu, wenn der Nutzer Dark Mode bevorzugt
+      //     document.body.classList.add("dark");
+      //   }
+      // });
     </script>
   </body>
 </html>

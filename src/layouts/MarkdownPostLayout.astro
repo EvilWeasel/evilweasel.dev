@@ -5,7 +5,13 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
-  <article class="prose prose-slate dark:prose-invert lg:prose-xl">
+  <article class={`prose prose-slate`}>
     <slot />
   </article>
 </Layout>
+
+<style>
+  html.dark article {
+    @apply prose-invert;
+  }
+</style>

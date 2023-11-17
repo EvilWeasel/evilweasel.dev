@@ -6,6 +6,11 @@
       "name": "Development server",
       "request": "launch",
       "type": "node-terminal"
+    },
+    {
+      "name": "FireDebugExtLaunch",
+      "type": "firefox",
+      "request": "attach"
     }
   ]
 }

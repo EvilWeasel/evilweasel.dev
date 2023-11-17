@@ -2,9 +2,10 @@
 import { Image } from "astro:assets";
 import HeaderLink from "./HeaderLink.astro";
 import Logo from "@images/Tux_Mono.svg";
+import Icon from "astro-icon";
 ---
 
-<nav class="relative pt-6">
+<nav class="relative pt-2 md:pt-6" transition:persist>
   <!-- Flex container -->
   <div class="flex items-center justify-between">
     <!-- Logo -->
@@ -14,22 +15,28 @@ import Logo from "@images/Tux_Mono.svg";
     <!-- Menu Items 
     Tailwind is mobile-first -->
     <div class="hidden space-x-6 md:flex">
-      <a href="#" class="hover:text-pink-500 underline underline-offset-2"
+      <a href="/" class="hover:text-pink-500 underline underline-offset-2"
         >About Me</a
       >
       <a href="/blog" class="hover:text-pink-500 underline underline-offset-2"
         >Blog</a
       >
-      <a href="/docs" class="hover:text-pink-500 underline underline-offset-2"
-        >Docs</a
-      >
     </div>
     <a
-      href="#"
+      href="/guides"
       class="baseline hidden rounded-full bg-purple-500 p-3 px-6 py-3 text-white hover:bg-pink-500 md:block"
-      >Get Started</a
+      >Evil Docs</a
     >
-    <button class="text-3xl" id="theme-toggle">🌓</button>
+    <a
+      href="/admin/index.html"
+      class="baseline hidden rounded-full bg-cyan-700 p-3 px-6 py-3 text-white hover:bg-pink-500 md:block"
+      >CMS</a
+    >
+
+    <button id="theme-toggle">
+      <Icon pack="entypo" name="light-up" class="w-8 block dark:hidden" />
+      <Icon pack="akar-icons" name="moon" class="w-8 hidden dark:block" />
+    </button>
     <!-- Hamburger Icon -->
     <button id="menu-btn" class="hamburger block focus:outline-none md:hidden">
       <span class="hamburger-top"></span>
@@ -41,11 +48,12 @@ import Logo from "@images/Tux_Mono.svg";
   <div class="md:hidden">
     <div
       id="menu"
-      class="absolute left-6 right-6 mt-10 hidden flex-col items-center space-y-6 self-end bg-white py-8 font-bold drop-shadow-md sm:w-auto sm:self-center z-10"
+      class="absolute left-6 right-6 mt-10 hidden flex-col items-center space-y-6 self-end py-8 font-bold drop-shadow-md sm:w-auto sm:self-center z-10"
     >
-      <a href="#">About Me</a>
-      <a href="#">Blog</a>
-      <a href="#">Docs</a>
+      <a class="hover:text-primary" href="/">About Me</a>
+      <a class="hover:text-primary" href="/blog">Blog</a>
+      <a class="hover:text-primary" href="/guides">Evil Docs</a>
+      <a class="hover:text-primary" href="/admin/index.html">CMS</a>
     </div>
   </div>
 </nav>
@@ -68,11 +76,38 @@ import Logo from "@images/Tux_Mono.svg";
     @apply flex flex-row justify-between;
   }
 </style> -->
-
 <script defer>
   const btn_menu = document.querySelector("#menu-btn");
   const nav_elem = document.querySelector("#menu");
   const btn_theme = document.querySelector("#theme-toggle");
+
+  const getTheme = () => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      return storedTheme;
+    } else {
+      const prefersDarkMode = window.matchMedia(
+        "(prefers-color-scheme: dark)",
+      ).matches;
+      return prefersDarkMode ? "dark" : "light";
+    }
+  };
+
+  const setTheme = (theme) => {
+    document.documentElement.classList.remove("light", "dark");
+    document.documentElement.classList.add(theme);
+    localStorage.setItem("theme", theme);
+  };
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const theme = getTheme();
+    setTheme(theme);
+  });
+
+  document.addEventListener("astro:after-swap", () => {
+    const theme = getTheme();
+    setTheme(theme);
+  });
 
   btn_menu.addEventListener("click", () => {
     btn_menu.classList.toggle("open");
@@ -80,15 +115,32 @@ import Logo from "@images/Tux_Mono.svg";
     nav_elem.classList.toggle("hidden");
   });
 
+  const menuLinks = document.querySelectorAll("#menu a");
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      btn_menu.classList.remove("open");
+      nav_elem.classList.remove("flex");
+      nav_elem.classList.add("hidden");
+    });
+  });
+
   btn_theme.addEventListener("click", () => {
-    document.documentElement.classList.toggle("dark");
+    const currentTheme = getTheme();
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+    setTheme(newTheme);
   });
 </script>
 
 <style>
-  /* todo: temp */
-  a:last-child {
-    display: none;
+  #menu {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  }
+  /** DarkMode Menu when html.dark */
+  html.dark #menu {
+    background-color: #1f2937;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   }
   /* Hamburger Menu */
   .hamburger {
