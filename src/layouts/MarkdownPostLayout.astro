@@ -5,7 +5,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
-  <article class={`prose prose-slate`}>
+  <article class={`prose prose-slate m-auto lg:prose-lg xl:prose-xl`}>
     <slot />
   </article>
 </Layout>
