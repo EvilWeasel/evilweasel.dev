@@ -23,6 +23,8 @@
     "accessible-astro-components": "^2.3.0",
     "astro": "^3.4.2",
     "astro-icon": "^0.8.1",
+    "glob": "^10.3.10",
+    "gray-matter": "^4.0.3",
     "markdown-it": "^13.0.2",
     "preact": "^10.6.5",
     "sanitize-html": "^2.11.0",
