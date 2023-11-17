@@ -6,7 +6,7 @@ const allPosts = await getCollection("blog");
 ---
 
 <Layout title="Blog Me">
-  <ul>
+  <ul class="container flex flex-row flex-wrap gap-4">
     {
       allPosts.map((post) => (
         <li>

@@ -3,6 +3,12 @@ title: "PowerShell - Deutsch"
 description: "Powershell - Deutsch"
 ---
 
+# Disclaimer:
+
+> Die PowerShell Dokumentation ist als begleitmaterial zu einem 3 Tage Workshop entstanden.
+> Daher fehlt an einigen Stellen der rote Faden aus diesem Workshop. Trotzdem habe ich mir Mühe gegeben
+> die Themen in eine sinnvolle Reihenfolge zu bringen.
+
 # Einleitung in **PowerShell**
 
 - [ ] History of PowerShell

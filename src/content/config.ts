@@ -3,23 +3,24 @@ import { defineCollection, z } from "astro:content";
 
 const postsCollection = defineCollection({
   type: "content",
-  schema: ({image}) => z.object({
-    title: z.string(),
-    pubDate: z.date(),
-    description: z.string(),
-    author: z.enum(["EvilWeasel", "Du"]),
-    cover: image().refine((img) => img.width >= 1080, {
-      message: "Cover image must be at least 1080px wide!"
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      pubDate: z.date(),
+      description: z.string(),
+      author: z.enum(["EvilWeasel", "Du"]),
+      cover: image().refine((img) => img.width >= 480, {
+        message: "Cover image must be at least 480px wide!",
+      }),
+      coverAlt: z.string(),
     }),
-    coverAlt: z.string(),
-  }),
 });
 
 const docsCollection = defineCollection({
-  schema: docsSchema()
+  schema: docsSchema(),
 });
 
 export const collections = {
   blog: postsCollection,
-  docs: docsCollection
+  docs: docsCollection,
 };
