@@ -7,9 +7,13 @@ cover: "../../assets/images/ac6.jpg"
 coverAlt: memes
 ---
 
-import Greeting from "@components/Greeting.jsx";
+import Latex from "@components/Latex.astro";
 
-<Greeting client:load messages={["hello", "hi", "moin", "buxtehude!"]} />
+<Latex>
+  `<latex-code>
+  \text{{Creative ROI}} = \left( \frac{{\text{{Advertisement Value}}}}{{\text{{Cost of Investment}}}} \right) \times 100\%
+  </latex-code>`
+</Latex>
 
 ## Why do we need docker?
 
@@ -29,7 +33,7 @@ const express = require("express@4.17.1");
 
 ## How to use docker for development
 
-Docker is ideal for developing basically anything that works inside an [[LXC-Container]]. With it, we can define our dependencies once in a `Dockerfile`, which can then be distributed to all contributors to the project. That way there's no need to install all dependencies individually anymore, because the entire development-environment is pre-built.
+Docker is ideal for developing basically anything that works inside an LXC-Container. With it, we can define our dependencies once in a `Dockerfile`, which can then be distributed to all contributors to the project. That way there's no need to install all dependencies individually anymore, because the entire development-environment is pre-built.
 
 ## How to build a Dev-Environment?
 

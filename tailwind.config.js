@@ -4,9 +4,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["GeistVF"],
-        serif: ["GeistVF"],
-        mono: ["GeistMonoVF"],
+        sans: ["MonaspaceNeon"],
+        serif: ["MonaspaceXenon"],
+        mono: ["MonaspaceArgon"],
+        term: ["MonaspaceKrypton"],
       },
       colors: {
         primary: "#ff79c6",

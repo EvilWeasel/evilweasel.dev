@@ -7,11 +7,6 @@ cover: "../../assets/images/ukraine-r-place-himars.webp"
 coverAlt: "The r/place 2023 Ukraine-Flag"
 ---
 
-<aside>
-🤖 **Made with Love and GPT**
-
-</aside>
-
 Hey folks, let's dive right into the buzz that's been circling around lately - the skyrocketing demand for High Mobility Artillery Rocket Systems, or HIMARS for short. Now, I've been digging into this, and it seems like the U.S. is playing Santa Claus, handing out these bad boys left and right, especially to Ukraine and Poland. But here's the kicker - not everyone is on board with this, with some even calling for a halt to the support. So, I decided to play devil's advocate (though in this case, Russia seems to be wearing the horns) and take a closer look at the economics of these deals.
 
 First off, let's talk numbers. The U.S. has been pretty generous with Ukraine, assisting them with a cool 38 HIMARS systems. That's not just a military move, but a hefty economic one too. Meanwhile, Poland has gone on a shopping spree, ordering a whopping 500 units, making their deal a whole lot bigger in both scale and value. Just to give you a clearer picture, check out this chart on the right, that compares the financial aspects of these transactions.
@@ -27,18 +22,12 @@ Now, I couldn't just stop there. I got curious about how this whole thing stacks
 Quick detour: ROI, or Return on Investment, usually measures the financial gains from investments, calculated as:
 
 $$
-ROI = \left( \frac{{\text{{Net Profit}}}}{{\text{{Cost of Investment}}}} \right) \times 100\%
-
-
+"ROI = left( \frac{{\text{{Net Profit}}}}{{\text{{Cost of Investment}}}} \right) \times 100%"
 $$
 
-Here we are jazzing it up, using it to gauge the "advertisement value" (I guess you could call it “ROA”) the U.S. snagged from the HIMARS deal with Ukraine, which kind of looks like this:
-
-$$
-\text{{Creative ROI}} = \left( \frac{{\text{{Advertisement Value}}}}{{\text{{Cost of Investment}}}} \right) \times 100\%
-
-
-$$
+Here we are jazzing it up, using it to gauge the "advertisement value" (I guess you
+could call it “ROA”) the U.S. snagged from the HIMARS deal with Ukraine, which kind
+of looks like this:
 
 ![Comparing the “Return On Investment” (ROI) between common investment-opportunities and the polish HIMARS deal. (logarithmic y-axis) ](./the-himars-hustle-a-geopolitical-chess-move/roa_himars.png)
 
@@ -57,14 +46,12 @@ Now, I'm not one to champion the war economy, but looking at Russia trying to mi
 > "We must act united – to defeat the aggressor and focus all our capabilities and energy on addressing these challenges. As nukes are restrained, likewise the aggressor must be restrained and all its tools and methods of war.”
 > **- Volodymyr Zelenskyy at the UN (talking about climate change)**
 
-But hey, it's not all doom and gloom. Each one of us has a role to play in shaping a brighter future. By staying informed and engaging in constructive discussions, we can foster understanding and work towards a world where conflicts are resolved through dialogue, not warfare.
+But hey, it's not all doom and gloom. Each one of us has a role to play in shaping a brighter future. By staying informed and engaging in constructive discussions, we can foster understanding and work towards a world, where conflicts are resolved through dialogue, not warfare.
 
 So, let's keep the conversation going, shall we?
-
----
 
 This article was made during a silly little bit of news-research with ChatGPT. If you want to see how it was made, here’s the link to the chat. Keep in mind, that hosted images, like the diagrams from this article, may not show up for you in the chat. The files have to be hosted somewhere and that stuff’s expensive…
 
 [ChatGPT](https://chat.openai.com/share/41001ea5-4576-4170-b18e-73446c637a6d)
 
-If you find it helpful in any way, I would love to hear about it. <3
+If you find it helpful in any way, I would love to hear about it. ❤️

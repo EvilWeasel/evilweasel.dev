@@ -1,0 +1,36 @@
+---
+import katex from "katex";
+
+// Manual function to decode HTML entities
+function decodeHtml(html: string) {
+  return html
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'");
+}
+
+// Render the slot content
+const slotContent = (await Astro.slots.render("default")) || "";
+
+// Regex to extract content within `<latex-code>` tags
+const regex = /<code>&lt;latex-code&gt;(.*?)&lt;\/latex-code&gt;<\/code>/s;
+const match = regex.exec(slotContent);
+const rawFormula = match ? match[1].trim() : "";
+const decodedFormula = decodeHtml(rawFormula);
+
+// Render LaTeX using KaTeX
+const html = katex.renderToString(decodedFormula, { throwOnError: false });
+---
+
+<div class="text-center">
+  <span set:html={html} class="" />
+</div>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.css"
+  integrity="sha384-WsHMgfkABRyG494OmuiNmkAOk8nhO1qE+Y6wns6v+EoNoTNxrWxYpl5ZYWFOLPCM"
+  crossorigin="anonymous"
+/>

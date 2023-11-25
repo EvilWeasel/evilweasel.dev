@@ -1,8 +1,14 @@
 ---
 import Hero from "@components/Hero.astro";
+import Latex from "@components/Latex.astro";
 import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout title="Willkommen">
   <Hero />
+  <br />
+  <Latex
+    formula="ROI = \left( \frac{{\text{{Net Profit}}}}{{\text{{Cost of Investment}}}} \right) \times 100"
+  />
+  <p>E=mc^2</p>
 </Layout>

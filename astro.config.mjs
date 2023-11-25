@@ -5,12 +5,21 @@ import preact from "@astrojs/preact";
 
 import starlight from "@astrojs/starlight";
 
+import rehypeKatex from "rehype-katex";
+
+import remarkMath from "remark-math";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://evilweasel-blog.netlify.app/",
   integrations: [
     tailwind(),
-    mdx(),
+    mdx({
+      syntaxHighlight: "shiki",
+      shikiConfig: { theme: "dracula" },
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [rehypeKatex],
+    }),
     preact(),
     starlight({
       title: "Evil Docs",
