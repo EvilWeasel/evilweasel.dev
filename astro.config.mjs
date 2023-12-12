@@ -2,12 +2,11 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import mdx from "@astrojs/mdx";
 import preact from "@astrojs/preact";
-
 import starlight from "@astrojs/starlight";
-
 import rehypeKatex from "rehype-katex";
-
 import remarkMath from "remark-math";
+
+import solidJs from "@astrojs/solid-js";
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,11 +15,15 @@ export default defineConfig({
     tailwind(),
     mdx({
       syntaxHighlight: "shiki",
-      shikiConfig: { theme: "dracula" },
+      shikiConfig: {
+        theme: "dracula",
+      },
       remarkPlugins: [remarkMath],
       rehypePlugins: [rehypeKatex],
     }),
-    preact(),
+    preact({
+      include: ["**/preact/*"],
+    }),
     starlight({
       title: "Evil Docs",
       sidebar: [
@@ -37,6 +40,9 @@ export default defineConfig({
         github: "https://github.com/EvilWeasel",
         linkedin: "https://www.linkedin.com/in/tobias-wehrle-690509222/",
       },
+    }),
+    solidJs({
+      include: ["**/solid/*"],
     }),
   ],
 });

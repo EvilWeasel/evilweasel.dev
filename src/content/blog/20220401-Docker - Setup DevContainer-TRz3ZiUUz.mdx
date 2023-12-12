@@ -7,13 +7,70 @@ cover: "../../assets/images/ac6.jpg"
 coverAlt: memes
 ---
 
-import Latex from "@components/Latex.astro";
+export const codeBlocksMultipleFiles = [
+  {
+    lang: "html",
+    filename: "index.html",
+    code: `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+</head>
+<body>
+  <h1>Hello World!</h1>
+</body>
+</html>`,
+  },
+  {
+    lang: "css",
+    filename: "main.css",
+    code: `h1 {
+  background-color: darkslategray;
+  color: whitesmoke;
+}`,
+  },
+];
+
+import CodeTabs from "@solid/CodeTabs.jsx";
+
+<CodeTabs client:load codeBlockList={codeBlocksMultipleFiles}></CodeTabs>
+
+import Latex from "@astro/Latex.astro";
 
 <Latex>
   `<latex-code>
   \text{{Creative ROI}} = \left( \frac{{\text{{Advertisement Value}}}}{{\text{{Cost of Investment}}}} \right) \times 100\%
   </latex-code>`
 </Latex>
+
+import AstroCodeTabs from "@astro/AstroCodeTabs.astro";
+
+<AstroCodeTabs>
+<div slot="1">
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+</head>
+<body>
+  <h1>Hello World!</h1>
+</body>
+</html>
+```
+</div>
+
+<div slot="2">
+```css
+h1 {
+  background-color: darkslategray;
+  color: whitesmoke;
+}
+```
+</div>
+</AstroCodeTabs>
 
 ## Why do we need docker?
 

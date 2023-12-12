@@ -2,11 +2,15 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "types": ["bun-types"],
-    "baseUrl": ".",
+    "baseUrl": "/home/evilweasel/source/evilweasel.dev",
     "paths": {
-      "@components/*": ["src/components/*"],
+      "@solid/*": ["src/components/solid/*"],
+      "@preact/*": ["src/components/preact/*"],
+      "@astro/*": ["src/components/astro/*"],
       "@layouts/*": ["src/layouts/*"],
       "@images/*": ["src/assets/images/*"]
-    }
+    },
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js"
   }
 }
